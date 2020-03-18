@@ -59,6 +59,11 @@ public abstract class Card {
 		this.balance = this.balance.subtract(amount);
 	}
 	
+	public boolean checkPin(String pin) {
+		return hashPin(pin) == pinHash;
+		
+	}
+	
 	@Override
 	public String toString() {
 		return "Card No.: " + getCardNumberString() + "\n" + 
