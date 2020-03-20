@@ -21,7 +21,7 @@ public class Main {
 			
 			}
 		finally { 
-			atm.eject();
+			atm.eject();fwefwef
 		}
 
 	}
