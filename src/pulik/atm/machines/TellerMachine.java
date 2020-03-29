@@ -1,11 +1,12 @@
-package pulik.atm;
+package pulik.atm.machines;
 
+import pulik.atm.cards.Card;
 import pulik.atm.exceptions.IncorrectPinException;
 
 public class TellerMachine {
 
 	protected Card insertedCard;
-	private boolean authorised;
+	protected boolean authorised;
 
 	public void insert(Card card) {
 		insertedCard = card;

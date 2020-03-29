@@ -1,4 +1,6 @@
-package pulik.atm;
+package pulik.atm.machines;
+
+import pulik.atm.cards.Card;
 
 public class TerminalATM extends TellerMachine {
 	
