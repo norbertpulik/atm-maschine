@@ -36,7 +36,7 @@ public abstract class Card {
 		}
 		return hash;
 	}
-	
+	hhhh
 	private Date calculateExpiration() {
 		Calendar expCal = Calendar.getInstance();
 		expCal.add(Calendar.YEAR, 2);
