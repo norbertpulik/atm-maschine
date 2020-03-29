@@ -1,4 +1,4 @@
-package pulik.atm;
+package pulik.atm.cards;
 
 import java.math.BigDecimal;
 

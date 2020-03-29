@@ -2,6 +2,10 @@ package pulik.atm;
 
 import java.math.BigDecimal;
 
+import pulik.atm.cards.Card;
+import pulik.atm.cards.DebitCard;
+import pulik.atm.machines.TellerMachine;
+
 public class Main {
 	public static void main(String[] args) {
 
@@ -11,17 +15,20 @@ public class Main {
 		
 		atm.insert(c);
 		atm.inputPin(inPin);
+	
+		
 		
 		try { 
 			atm.showBalance();
 		}
+		
 		catch(IllegalArgumentException ex) {
 			System.out.println("Access denied");
 			System.out.println("Ejecting card");
 			
 			}
 		finally { 
-			atm.eject();fwefwef
+			atm.eject();
 		}
 
 	}
