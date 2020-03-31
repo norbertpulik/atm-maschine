@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
 
+import pulik.atm.exceptions.IncorrectPinException;
+
 public abstract class Card {
 
 	private long cardNumber;
@@ -11,7 +13,9 @@ public abstract class Card {
 	private String cardHolder;
 	private int pinHash;
 	private Date expiration;
+
 	private boolean isBlocked;
+	private boolean isUnlocked;
 	
 
 	public Card(long cardNumber, String cardHolder, String pin, BigDecimal balance) {
@@ -50,18 +54,24 @@ public abstract class Card {
 	}
 	
 	
-	public BigDecimal getBalance() {
+	public BigDecimal getBalance() throws Exception {
+		if (!this.isUnlocked) {
+			throw new IncorrectPinException("Incorrect PIN. Detaily....");
+		}
+		this.isUnlocked = false;
 		return this.balance;
-		
 	}
 	
-	public void withdraw(BigDecimal amount) {
+	public void withdraw(BigDecimal amount) throws Exception {
+		if (!this.isUnlocked) {
+			throw new IncorrectPinException("Incorrect PIN.");
+		}
+		this.isUnlocked = false;
 		this.balance = this.balance.subtract(amount);
 	}
 	
-	public boolean checkPin(String pin) {
-		return hashPin(pin) == pinHash;
-		
+	public void unlock(String pin) {
+		this.isUnlocked = hashPin(pin) == pinHash;
 	}
 	
 	@Override
@@ -70,7 +80,7 @@ public abstract class Card {
 				"Expiration: " + expiration + "\n" +
 				"Holder: " + cardHolder;
 		
-	 
+
 	}
 	private String getCardNumberString() {
 		String cardstr = String.valueOf(cardNumber);
