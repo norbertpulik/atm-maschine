@@ -3,7 +3,7 @@ package pulik.atm.machines;
 import pulik.atm.cards.Card;
 import pulik.atm.exceptions.IncorrectPinException;
 
-public class TellerMachine {
+public abstract class  TellerMachine {
 
 	protected Card insertedCard;
 	protected boolean authorised;
@@ -17,21 +17,15 @@ public class TellerMachine {
 
 	}
 
-	public void inputPin(String pin) throws Exception {
-		boolean correctPin = insertedCard.checkPin(pin); 
-		authorised = correctPin;
-		if (!correctPin) {
-			throw  new IncorrectPinException("Pin incorrect");
-		}
+	public void inputPin(String pin) {
+		insertedCard.unlock(pin);
+	}
+
+	public abstract void showBalance();
+	
 		
 	}
+		
+	
 
-	public void showBalance() {
-		if (!authorised) {
-			throw new IllegalArgumentException();
-		}
 
-		System.out.println(insertedCard.getBalance()); // todo
-	}
-
-}

@@ -16,7 +16,7 @@ public class DebitCard extends Card{
 
 
 	@Override
-	public void withdraw(BigDecimal amount) {
+	public void withdraw(BigDecimal amount) throws Exception {
 		if (amount.compareTo(getBalance())<= 0 ) {
 			super.withdraw(amount);
 		}

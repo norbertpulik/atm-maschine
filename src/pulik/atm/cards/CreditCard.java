@@ -20,7 +20,8 @@ public class CreditCard extends Card {
 		}
 		
 		@Override
-		public void withdraw(BigDecimal amount) {
+		public void withdraw(BigDecimal amount) throws Exception
+		{
 			if (getBalance().subtract(amount).compareTo(minimum) >= 0 ) {
 				super.withdraw(amount);
 			}
