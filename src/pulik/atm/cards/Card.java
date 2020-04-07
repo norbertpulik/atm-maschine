@@ -14,7 +14,7 @@ public abstract class Card {
 	private int pinHash;
 	private Date expiration;
 
-	private boolean isBlocked;
+	// private boolean isBlocked;
 	private boolean isUnlocked;
 
 	public Card(long cardNumber, String cardHolder, String pin, BigDecimal balance) {
@@ -23,7 +23,7 @@ public abstract class Card {
 		this.pinHash = hashPin(pin);
 		this.expiration = calculateExpiration();
 		this.balance = balance;
-		this.isBlocked = false;
+		// this.isBlocked = false;
 
 	}
 
@@ -58,13 +58,11 @@ public abstract class Card {
 
 		this.isUnlocked = false;
 		return this.balance;
-
 	}
 
 	public void withdraw(BigDecimal amount) throws Exception {
 		if (!this.isUnlocked) {
 			throw new IncorrectPinException("Incorrect Pin");
-
 		}
 
 		{
@@ -76,14 +74,12 @@ public abstract class Card {
 
 	public void unlock(String pin) {
 		this.isUnlocked = hashPin(pin) == pinHash;
-
 	}
 
 	@Override
 	public String toString() {
 		return "Card No.: " + getCardNumberString() + "\n" + "Expiration: " + expiration + "\n" + "Holder: "
 				+ cardHolder;
-
 	}
 
 	private String getCardNumberString() {

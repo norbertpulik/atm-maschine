@@ -1,9 +1,8 @@
 package pulik.atm.machines;
 
 import pulik.atm.cards.Card;
-import pulik.atm.exceptions.IncorrectPinException;
 
-public abstract class  TellerMachine {
+public abstract class TellerMachine {
 
 	protected Card insertedCard;
 	protected boolean authorised;
@@ -22,10 +21,5 @@ public abstract class  TellerMachine {
 	}
 
 	public abstract void showBalance();
-	
-		
-	}
-		
-	
 
-
+}
