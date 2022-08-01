@@ -20,6 +20,7 @@ public class Main {
 		atm.eject();
 
 		System.out.println("\n\n");
+		System.out.println("\n\n");
 
 		atm.insert(c);
 		atm.showBalance();
