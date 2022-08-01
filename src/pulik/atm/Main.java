@@ -21,6 +21,8 @@ public class Main {
 
 		System.out.println("\n\n");
 		//pridal som koment
+		//pridal som koment
+
 
 		atm.insert(c);
 		atm.showBalance();
