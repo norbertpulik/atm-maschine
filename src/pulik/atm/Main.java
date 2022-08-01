@@ -20,6 +20,7 @@ public class Main {
 		atm.eject();
 
 		System.out.println("\n\n");
+		//pridal som koment
 
 		atm.insert(c);
 		atm.showBalance();
